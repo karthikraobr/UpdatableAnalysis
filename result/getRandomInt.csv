@@ -1,0 +1,5 @@
+Unit,OutSet,UpdatedOutSet
+$r1 = new java.util.Random,[],[]
+specialinvoke $r1.<java.util.Random: void <init>()>(),[],[]
+$i0 = virtualinvoke $r1.<java.util.Random: int nextInt(int)>(150),[],[]
+return $i0,[],[]

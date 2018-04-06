@@ -1,0 +1,7 @@
+Unit,OutSet,UpdatedOutSet
+r0 := @this: de.visuflow.analyzeMe.ex2.TargetClass2,[],[]
+i0 = staticinvoke <de.visuflow.analyzeMe.ex2.TargetClass2: int getSecretInteger()>(),[LOCAL i0],[LOCAL i0]
+i1 = i0 + 12,"[LOCAL i0, LOCAL i1]","[LOCAL i0, LOCAL i1]"
+$r1 = <java.lang.System: java.io.PrintStream out>,"[LOCAL i0, LOCAL i1]","[LOCAL i0, LOCAL i1]"
+virtualinvoke $r1.<java.io.PrintStream: void println(int)>(i1),"[LOCAL i0, LOCAL i1]","[LOCAL i0, LOCAL i1]"
+return,"[LOCAL i0, LOCAL i1]","[LOCAL i0, LOCAL i1]"

@@ -1,0 +1,7 @@
+Unit,OutSet,UpdatedOutSet
+r0 := @this: de.visuflow.analyzeMe.ex2.TargetClass2,[],[]
+r1 = specialinvoke r0.<de.visuflow.analyzeMe.ex2.TargetClass2: java.lang.String getSecret()>(),[LOCAL r1],[LOCAL r1]
+z0 = r1 instanceof java.lang.String,"[LOCAL r1, LOCAL z0]","[LOCAL r1, LOCAL z0]"
+$r2 = <java.lang.System: java.io.PrintStream out>,"[LOCAL r1, LOCAL z0]","[LOCAL r1, LOCAL z0]"
+virtualinvoke $r2.<java.io.PrintStream: void println(boolean)>(z0),"[LOCAL r1, LOCAL z0]","[LOCAL r1, LOCAL z0]"
+return,"[LOCAL r1, LOCAL z0]","[LOCAL r1, LOCAL z0]"

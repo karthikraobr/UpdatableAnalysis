@@ -1,0 +1,40 @@
+class de.visuflow.analyzeMe.ex2.TargetClass2$Container extends java.lang.Object
+{
+    public java.lang.String taintedField;
+    public java.lang.String notTainted;
+    final de.visuflow.analyzeMe.ex2.TargetClass2 this$0;
+
+    private void <init>(de.visuflow.analyzeMe.ex2.TargetClass2)
+    {
+        de.visuflow.analyzeMe.ex2.TargetClass2$Container r0;
+        de.visuflow.analyzeMe.ex2.TargetClass2 r1;
+
+        r0 := @this: de.visuflow.analyzeMe.ex2.TargetClass2$Container;
+
+        r1 := @parameter0: de.visuflow.analyzeMe.ex2.TargetClass2;
+
+        r0.<de.visuflow.analyzeMe.ex2.TargetClass2$Container: de.visuflow.analyzeMe.ex2.TargetClass2 this$0> = r1;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        r0.<de.visuflow.analyzeMe.ex2.TargetClass2$Container: java.lang.String notTainted> = "foobar";
+
+        return;
+    }
+
+    void <init>(de.visuflow.analyzeMe.ex2.TargetClass2, de.visuflow.analyzeMe.ex2.TargetClass2$Container)
+    {
+        de.visuflow.analyzeMe.ex2.TargetClass2$Container r0, r2;
+        de.visuflow.analyzeMe.ex2.TargetClass2 r1;
+
+        r0 := @this: de.visuflow.analyzeMe.ex2.TargetClass2$Container;
+
+        r1 := @parameter0: de.visuflow.analyzeMe.ex2.TargetClass2;
+
+        r2 := @parameter1: de.visuflow.analyzeMe.ex2.TargetClass2$Container;
+
+        specialinvoke r0.<de.visuflow.analyzeMe.ex2.TargetClass2$Container: void <init>(de.visuflow.analyzeMe.ex2.TargetClass2)>(r1);
+
+        return;
+    }
+}

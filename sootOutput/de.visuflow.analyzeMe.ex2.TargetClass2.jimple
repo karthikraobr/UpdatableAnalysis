@@ -1,0 +1,263 @@
+public class de.visuflow.analyzeMe.ex2.TargetClass2 extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        de.visuflow.analyzeMe.ex2.TargetClass2 r0;
+
+        r0 := @this: de.visuflow.analyzeMe.ex2.TargetClass2;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    private void leak(java.lang.String)
+    {
+        de.visuflow.analyzeMe.ex2.TargetClass2 r0;
+        java.lang.String r1, $r5;
+        java.lang.StringBuilder $r2, $r4;
+        java.io.PrintStream $r3;
+
+        r0 := @this: de.visuflow.analyzeMe.ex2.TargetClass2;
+
+        r1 := @parameter0: java.lang.String;
+
+        $r3 = <java.lang.System: java.io.PrintStream out>;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("Leak: ");
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r1);
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r3.<java.io.PrintStream: void println(java.lang.String)>($r5);
+
+        return;
+    }
+
+    public void sourceToSink()
+    {
+        de.visuflow.analyzeMe.ex2.TargetClass2 r0;
+        java.lang.String r1;
+
+        r0 := @this: de.visuflow.analyzeMe.ex2.TargetClass2;
+
+        r1 = specialinvoke r0.<de.visuflow.analyzeMe.ex2.TargetClass2: java.lang.String getSecret()>();
+
+        specialinvoke r0.<de.visuflow.analyzeMe.ex2.TargetClass2: void leak(java.lang.String)>(r1);
+
+        return;
+    }
+
+    public java.lang.String sourceToReturn()
+    {
+        de.visuflow.analyzeMe.ex2.TargetClass2 r0;
+        java.lang.String r1;
+
+        r0 := @this: de.visuflow.analyzeMe.ex2.TargetClass2;
+
+        r1 = specialinvoke r0.<de.visuflow.analyzeMe.ex2.TargetClass2: java.lang.String getSecret()>();
+
+        return r1;
+    }
+
+    public java.lang.String sourceToLeakAndReturn()
+    {
+        de.visuflow.analyzeMe.ex2.TargetClass2 r0;
+        java.lang.String r1;
+
+        r0 := @this: de.visuflow.analyzeMe.ex2.TargetClass2;
+
+        r1 = specialinvoke r0.<de.visuflow.analyzeMe.ex2.TargetClass2: java.lang.String getSecret()>();
+
+        specialinvoke r0.<de.visuflow.analyzeMe.ex2.TargetClass2: void leak(java.lang.String)>(r1);
+
+        return r1;
+    }
+
+    public void taintOverwriteByConstant()
+    {
+        de.visuflow.analyzeMe.ex2.TargetClass2 r0;
+        java.lang.String r2;
+
+        r0 := @this: de.visuflow.analyzeMe.ex2.TargetClass2;
+
+        r2 = specialinvoke r0.<de.visuflow.analyzeMe.ex2.TargetClass2: java.lang.String getSecret()>();
+
+        specialinvoke r0.<de.visuflow.analyzeMe.ex2.TargetClass2: void leak(java.lang.String)>(r2);
+
+        specialinvoke r0.<de.visuflow.analyzeMe.ex2.TargetClass2: void leak(java.lang.String)>("foobar");
+
+        return;
+    }
+
+    public void taintedBase()
+    {
+        de.visuflow.analyzeMe.ex2.TargetClass2 r0;
+        java.lang.String r1, $r4, $r5;
+        de.visuflow.analyzeMe.ex2.TargetClass2$Container $r3;
+        java.io.PrintStream $r6;
+
+        r0 := @this: de.visuflow.analyzeMe.ex2.TargetClass2;
+
+        r1 = specialinvoke r0.<de.visuflow.analyzeMe.ex2.TargetClass2: java.lang.String getSecret()>();
+
+        $r3 = new de.visuflow.analyzeMe.ex2.TargetClass2$Container;
+
+        specialinvoke $r3.<de.visuflow.analyzeMe.ex2.TargetClass2$Container: void <init>(de.visuflow.analyzeMe.ex2.TargetClass2,de.visuflow.analyzeMe.ex2.TargetClass2$Container)>(r0, null);
+
+        $r3.<de.visuflow.analyzeMe.ex2.TargetClass2$Container: java.lang.String taintedField> = r1;
+
+        $r3.<de.visuflow.analyzeMe.ex2.TargetClass2$Container: java.lang.String notTainted> = "hello";
+
+        $r4 = $r3.<de.visuflow.analyzeMe.ex2.TargetClass2$Container: java.lang.String notTainted>;
+
+        specialinvoke r0.<de.visuflow.analyzeMe.ex2.TargetClass2: void leak(java.lang.String)>($r4);
+
+        $r6 = <java.lang.System: java.io.PrintStream out>;
+
+        $r5 = $r3.<de.visuflow.analyzeMe.ex2.TargetClass2$Container: java.lang.String taintedField>;
+
+        virtualinvoke $r6.<java.io.PrintStream: void println(java.lang.String)>($r5);
+
+        return;
+    }
+
+    public void taintedInstanceOfOperand()
+    {
+        de.visuflow.analyzeMe.ex2.TargetClass2 r0;
+        java.lang.String r1;
+        boolean z0;
+        java.io.PrintStream $r2;
+
+        r0 := @this: de.visuflow.analyzeMe.ex2.TargetClass2;
+
+        r1 = specialinvoke r0.<de.visuflow.analyzeMe.ex2.TargetClass2: java.lang.String getSecret()>();
+
+        z0 = r1 instanceof java.lang.String;
+
+        $r2 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r2.<java.io.PrintStream: void println(boolean)>(z0);
+
+        return;
+    }
+
+    public void taintedLogicOperand()
+    {
+        de.visuflow.analyzeMe.ex2.TargetClass2 r0;
+        int i0, i1;
+        java.io.PrintStream $r1;
+
+        r0 := @this: de.visuflow.analyzeMe.ex2.TargetClass2;
+
+        i0 = staticinvoke <de.visuflow.analyzeMe.ex2.TargetClass2: int getSecretInteger()>();
+
+        i1 = i0 | 12;
+
+        $r1 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r1.<java.io.PrintStream: void println(int)>(i1);
+
+        return;
+    }
+
+    public void taintedArithmeticOperand()
+    {
+        de.visuflow.analyzeMe.ex2.TargetClass2 r0;
+        int i0, i1;
+        java.io.PrintStream $r1;
+
+        r0 := @this: de.visuflow.analyzeMe.ex2.TargetClass2;
+
+        i0 = staticinvoke <de.visuflow.analyzeMe.ex2.TargetClass2: int getSecretInteger()>();
+
+        i1 = i0 + 12;
+
+        $r1 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r1.<java.io.PrintStream: void println(int)>(i1);
+
+        return;
+    }
+
+    private java.lang.String getSecret()
+    {
+        de.visuflow.analyzeMe.ex2.TargetClass2 r0;
+
+        r0 := @this: de.visuflow.analyzeMe.ex2.TargetClass2;
+
+        return "top secret";
+    }
+
+    private static int getSecretInteger()
+    {
+        return 42;
+    }
+
+    private static int getRandomInt()
+    {
+        java.util.Random $r1;
+        int $i0;
+
+        $r1 = new java.util.Random;
+
+        specialinvoke $r1.<java.util.Random: void <init>()>();
+
+        $i0 = virtualinvoke $r1.<java.util.Random: int nextInt(int)>(150);
+
+        return $i0;
+    }
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] r0;
+        int i0;
+        java.io.PrintStream $r1, $r2, $r3, $r4, $r5;
+
+        r0 := @parameter0: java.lang.String[];
+
+        i0 = staticinvoke <de.visuflow.analyzeMe.ex2.TargetClass2: int getRandomInt()>();
+
+        $r1 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r1.<java.io.PrintStream: void println(int)>(i0);
+
+        if i0 <= 0 goto label1;
+
+        $r5 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r5.<java.io.PrintStream: void println(java.lang.String)>("Hello");
+
+        goto label3;
+
+     label1:
+        if i0 <= 50 goto label2;
+
+        $r4 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r4.<java.io.PrintStream: void println(java.lang.String)>("World");
+
+        goto label3;
+
+     label2:
+        $r2 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r2.<java.io.PrintStream: void println(java.lang.String)>("Hello World");
+
+     label3:
+        if i0 >= 100 goto label4;
+
+        if i0 <= 50 goto label4;
+
+        $r3 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r3.<java.io.PrintStream: void println(java.lang.String)>("Hello Soot");
+
+     label4:
+        return;
+    }
+}

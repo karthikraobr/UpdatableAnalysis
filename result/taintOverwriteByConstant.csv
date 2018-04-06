@@ -1,0 +1,6 @@
+Unit,OutSet,UpdatedOutSet
+r0 := @this: de.visuflow.analyzeMe.ex2.TargetClass2,[],[]
+r2 = specialinvoke r0.<de.visuflow.analyzeMe.ex2.TargetClass2: java.lang.String getSecret()>(),[LOCAL r2],[LOCAL r2]
+specialinvoke r0.<de.visuflow.analyzeMe.ex2.TargetClass2: void leak(java.lang.String)>(r2),[LOCAL r2],[LOCAL r2]
+"specialinvoke r0.<de.visuflow.analyzeMe.ex2.TargetClass2: void leak(java.lang.String)>(""foobar"")",[LOCAL r2],[LOCAL r2]
+return,[LOCAL r2],[LOCAL r2]

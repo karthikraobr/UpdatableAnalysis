@@ -1,0 +1,4 @@
+Unit,OutSet,UpdatedOutSet
+r1 := @parameter0: de.visuflow.analyzeMe.ex2.TargetClass2,[],[]
+return,[],[]
+return,[],[]

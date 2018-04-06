@@ -1,0 +1,4 @@
+Unit,OutSet,UpdatedOutSet
+r0 := @this: de.visuflow.analyzeMe.ex2.TargetClass2,[],[]
+r1 = specialinvoke r0.<de.visuflow.analyzeMe.ex2.TargetClass2: java.lang.String getSecret()>(),[LOCAL r1],[LOCAL r1]
+return r1,[LOCAL r1],[LOCAL r1]
